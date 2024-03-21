@@ -1,17 +1,25 @@
 import 'package:flutter/material.dart';
 
-class TextFieldModel extends ChangeNotifier {
-  String _text = '';
+class TextInputModel extends ChangeNotifier {
+  String _displayText = '';
+  bool _isTextFieldValid = true;
 
-  String get text => _text;
+  String get displayText => _displayText;
+  bool get isTextFieldValid => _isTextFieldValid;
 
-  void updateText(String newText) {
-    _text = newText;
+  void updateDisplayText(String text) {
+    _displayText = text;
     notifyListeners();
   }
 
-  void clearText() {
-    _text = '';
+  void validateTextField(String text) {
+    _isTextFieldValid = text.trim().isNotEmpty;
+    notifyListeners();
+  }
+
+  void clearTextField() {
+    _displayText = '';
+    _isTextFieldValid = true;
     notifyListeners();
   }
 }
