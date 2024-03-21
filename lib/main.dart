@@ -58,7 +58,7 @@ class TextInputPage extends StatelessWidget {
                           showDialog(
                             context: context,
                             builder: (_) => AlertDialog(
-                              title: const Text('Написанный текст'),
+                              title: const Text('ваш текст:'),
                               content: Text(_textController.text),
                               actions: [
                                 TextButton(
